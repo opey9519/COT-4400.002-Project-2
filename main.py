@@ -8,7 +8,7 @@ import time
 
 # Divide & Conquer (D&C) - Problem: Merge Sort
 def merge(left, right):
-    megred = []
+    merged = []
     i = 0
     j = 0
 
