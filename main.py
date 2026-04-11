@@ -3,7 +3,7 @@
 # Gavin Wilson
 # Stefan Dedic
 # Cameron Goz
-
+import random
 import time
 
 # Divide & Conquer (D&C) - Problem: Merge Sort
