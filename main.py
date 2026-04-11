@@ -7,6 +7,8 @@ import random
 import time
 
 # Divide & Conquer (D&C) - Problem: Merge Sort
+
+
 def merge(left, right):
     merged = []
     i = 0
@@ -21,15 +23,16 @@ def merge(left, right):
             merged.append(right[j])
             j += 1
     # add remaining elements once one is complete
-    while i < len(left): # left
+    while i < len(left):  # left
         merged.append(left[i])
         i += 1
-    while j < len(right): # right
+    while j < len(right):  # right
         merged.append(right[j])
         j += 1
 
     return merged
-    
+
+
 def mergeSort(array):
     # base: size 0 - 1 = sorted
     if len(array) <= 1:
@@ -47,7 +50,7 @@ def mergeSort(array):
 
 # Greedy Algorithm - Problem: Activity Selection Problem
 
-def activity_selection(activities):
+def activitySelection(activities):
     # Return an empty list if no activities
     if not activities:
         return []
@@ -100,7 +103,6 @@ def knapsack(weights, values, cap, i=0):
     return memo[(i, cap)]
 
 
-
 # == TEST CASES ==
 def DAC_test_cases():
     test_cases = [
@@ -123,8 +125,9 @@ def DAC_test_cases():
         print(f"Output:   {result}")
         print(f"Time:     {elapsed_ms:.6f} ms")
         print("-" * 50)
-    
+
 # Contains tests & function calls
+
 
 def DP_test_cases():
     ########## Dynamic Programming Knapsack 0/1 ##########
@@ -158,6 +161,7 @@ def DP_test_cases():
 
     print()
 
+
 def greedy_test_cases():
 
     # small input size
@@ -190,15 +194,15 @@ def greedy_test_cases():
     test_cases = [("Small input size ", test_case_1),
                   ("Medium input size ", test_case_2),
                   ("Edge case (empty input)", test_case_3)]
-    
+
     test_case_count = 1
 
     for test_case in test_cases:
         start = time.perf_counter()
-        selected_activities = activity_selection(test_case[1])
+        selected_activities = activitySelection(test_case[1])
         end = time.perf_counter()
 
-        execution_time = (end - start) * 1000 # ms
+        execution_time = (end - start) * 1000  # ms
         print(f"\nTest Case {test_case_count}: {test_case[0]}")
 
         print("\nInput Activities:")
@@ -213,6 +217,7 @@ def greedy_test_cases():
         print(f"Execution time: {execution_time: .6f}ms")
         print("-----------------")
         test_case_count += 1
+
 
 def main():
 
