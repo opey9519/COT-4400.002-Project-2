@@ -7,8 +7,42 @@
 import time
 
 # Divide & Conquer (D&C) - Problem: Merge Sort
-def mergeSort():
-    pass
+def merge(left, right):
+    megred = []
+    i = 0
+    j = 0
+
+    # compare elements from both halves + add to the smaller one
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            j += 1
+    # add remaining elements once one is complete
+    while i < len(left): # left
+        merged.append(left[i])
+        i += 1
+    while j < len(right): # right
+        merged.append(right[j])
+        j += 1
+
+    return merged
+    
+def mergeSort(array):
+    # base: size 0 - 1 = sorted
+    if len(array) <= 1:
+        return array
+
+    mid = len(array) // 2
+
+    # sort left and right halves
+    left = mergeSort(array[:mid])
+    right = mergeSort(array[mid:])
+
+    # merge and return
+    return merge(left, right)
 
 
 # Greedy Algorithm - Problem: Activity Selection Problem
@@ -68,7 +102,28 @@ def knapsack(weights, values, cap, i=0):
 
 
 # == TEST CASES ==
+def DAC_test_cases():
+    test_cases = [
+        ("Small random array", [5, 2, 9, 1, 3]),
+        ("Already sorted array", [1, 2, 3, 4, 5, 6, 7]),
+        ("Reverse sorted array", [7, 6, 5, 4, 3, 2, 1]),
+        ("Empty array", []),
+        ("Single element", [42]),
+        ("Medium random array", random.sample(range(1, 1000), 25)),
+    ]
+    for name, arr in test_cases:
+        original = arr[:]  # keep original for display
+        start_time = time.perf_counter()
+        result = mergeSort(arr)
+        end_time = time.perf_counter()
+        elapsed_ms = (end_time - start_time) * 1000
 
+        print(f"Test: {name}")
+        print(f"Input:    {original}")
+        print(f"Output:   {result}")
+        print(f"Time:     {elapsed_ms:.6f} ms")
+        print("-" * 50)
+    
 # Contains tests & function calls
 
 def DP_test_cases():
@@ -162,7 +217,7 @@ def greedy_test_cases():
 def main():
 
     # This calls the D&C test cases for the Merge Sort problem
-
+    DAC_test_cases()
     print("===========================================================")
     # This calls the Greedy test cases for Selection Algorithm problem
     greedy_test_cases()
