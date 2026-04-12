@@ -138,7 +138,12 @@ def DP_test_cases():
     cap1 = 5
 
     memo.clear()
-    print("Test 1 (Small):", knapsack(weights1, values1, cap1))
+    start_time = time.perf_counter()
+    result1 = knapsack(weights1, values1, cap1)
+    end_time = time.perf_counter()
+    elapsed_ms1 = (end_time - start_time) * 1000
+    print("Test 1 (Small):", result1)
+    print(f"Execution time: {elapsed_ms1:.6f} ms")
     # Expected: 55
 
     # -------- Test Case 2: Medium Input --------
@@ -147,7 +152,12 @@ def DP_test_cases():
     cap2 = 5
 
     memo.clear()
-    print("Test 2 (Medium):", knapsack(weights2, values2, cap2))
+    start_time = time.perf_counter()
+    result2 = knapsack(weights2, values2, cap2)
+    end_time = time.perf_counter()
+    elapsed_ms2 = (end_time - start_time) * 1000
+    print("Test 2 (Medium):", result2)
+    print(f"Execution time: {elapsed_ms2:.6f} ms")
     # Expected: 7
 
     # -------- Test Case 3: Edge Case --------
@@ -156,7 +166,12 @@ def DP_test_cases():
     cap3 = 10
 
     memo.clear()
-    print("Test 3 (Edge - Empty):", knapsack(weights3, values3, cap3))
+    start_time = time.perf_counter()
+    result3 = knapsack(weights3, values3, cap3)
+    end_time = time.perf_counter()
+    elapsed_ms3 = (end_time - start_time) * 1000
+    print("Test 3 (Edge - Empty):", result3)
+    print(f"Execution time: {elapsed_ms3:.6f} ms")
     # Expected: 0
 
     print()
